@@ -1,0 +1,31 @@
+
+body {
+  background-color: #FCFCFC;
+}
+
+@media (min-width: 992px) {
+
+.logo {
+  height: 50px;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.navBar {
+  margin-bottom: 50px;
+}
+
+
+}
+/* end of large screen media query*/
+
+@media (max-width: 992px) {
+
+  .logo {
+    max-height: 50px;
+    margin-top: 5px;
+    margin-left: 0px;
+  }
+
+}
+/* end of small screen media query */

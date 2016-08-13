@@ -1,0 +1,40 @@
+.loginBodyContainer {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #424242;
+}
+
+.loginContainer {
+  border: 1px solid #dedede;
+  border-radius: 5px;
+  background-color: #fff;
+  width: 450px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.loginLogo {
+  width: 250px;
+  height: auto;
+}
+
+#loginEmail {
+  margin-top: 20px;
+  width: 80%;
+}
+
+#loginPassword {
+  width: 80%;
+}
+
+.loginLogo a {
+  margin-bottom: 10px;
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)http://localhost:3000/#/editprofile -->
+<html ng-app="myApp" class="ng-scope"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    
+     <link rel="stylesheet" href="./localhost_files/materialize.min.css">
+     <link href="./localhost_files/icon" rel="stylesheet">
+    <link rel="stylesheet" href="./localhost_files/home.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="./localhost_files/navbar.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="./localhost_files/login.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="./localhost_files/userProfileEdit.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="./localhost_files/userProfile.css" media="screen" title="no title" charset="utf-8">
+    <link href="./localhost_files/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <title></title>
+  <script type="text/javascript" src="chrome-extension://aadgmnobpdmgmigaicncghmmoeflnamj/ng-inspector.js"></script></head>
+  <body cz-shortcut-listen="true">
+
+    <!-- uiView: --><ui-view class="ng-scope"><nav-bar-directive class="ng-scope ng-isolate-scope"><nav class="navBar">
+  <div class="nav-wrapper orange darken-1">
+    <a ui-sref="home" class="brand-logo" href="http://localhost:3000/#/home"><img class="logo" src="./localhost_files/logo.png" alt=""></a>
+    <a href="http://localhost:3000/" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li><a ui-sref="home" href="http://localhost:3000/#/home">Home</a></li>
+      <li><a ui-sref="custProfile" href="http://localhost:3000/#/custprofile">Site Management</a></li>
+      <!-- Dropdown Trigger -->
+      <li><a class="dropdown-button" href="http://localhost:3000/#!" data-activates="dropdown1">My Account<i class="material-icons right">arrow_drop_down</i></a><ul id="dropdown1" class="dropdown-content">
+  <li><a ui-sref="userProfile" href="http://localhost:3000/#/userprofile">Profile</a></li>
+  <li class="divider"></li>
+  <li><a href="http://localhost:3000/#!">Logout</a></li>
+</ul></li>
+    </ul>
+    <ul class="side-nav" id="mobile-demo" style="transform: translateX(-100%);">
+        <li><a ui-sref="home" href="http://localhost:3000/#/home">Home</a></li>
+        <li><a ui-sref="custProfile" href="http://localhost:3000/#/custprofile">Site Management</a></li>
+        <li class="divider"></li>
+        <li><a ui-sref="userProfile" href="http://localhost:3000/#/userprofile">Profile</a></li>
+        <li><a href="http://localhost:3000/">Logout</a></li>
+      </ul>
+  </div>
+</nav>
+
+
+<!-- Dropdown Structure -->
+
+</nav-bar-directive>
+
+<div class="container ng-scope">
+  <div class="row">
+       <div class="col s12 m5 l3"></div>
+       <div class="col s12 m12 l12">
+         <div class="row">
+           <form class="col s12 ng-pristine ng-valid">
+             <div class="row">
+               <div class="input-field col s6">
+                 <input value="admin" id="first_name" type="text" class="validate">
+                 <label class="active" for="first_name">First Name</label>
+               </div>
+               <div class="input-field col s6">
+                 <input value="admin" id="last_name" type="text" class="validate">
+                 <label class="active" for="last_name">Last Name</label>
+               </div>
+               <div class="input-field col s6">
+                 <input value="admin@gmail.com" id="email" type="email" class="validate">
+                 <label class="active" for="email">Email</label>
+               </div>
+               <div class="input-field col s6">
+                 <input value="password" id="password" type="password" class="validate">
+                 <label class="active" for="password">Password</label>
+               </div>
+               <div class="input-field col s6">
+                 <input value="password" id="text" type="password" class="validate valid">
+                 <label class="active" for="password">Password</label>
+               </div>
+             </div>
+           </form>
+         </div>
+         <a class="waves-effect waves-light btn orange darken-1" ng-click="editProfile()">Update Profile</a>
+       </div>
+     </div>
+   </div>
+</ui-view>
+
+    <script src="./localhost_files/angular.js" charset="utf-8"></script>
+    <script src="./localhost_files/angular-ui-router.js" charset="utf-8"></script>
+    <script src="./localhost_files/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+    <script src="./localhost_files/jquery.js" charset="utf-8"></script>
+    <script src="./localhost_files/materialize.min.js"></script>
+    <script src="./localhost_files/app.js" charset="utf-8"></script>
+    <script src="./localhost_files/mainService.js" charset="utf-8"></script>
+    <script src="./localhost_files/homeCtrl.js" charset="utf-8"></script>
+    <script src="./localhost_files/custProfileCtrl.js" charset="utf-8"></script>
+    <script src="./localhost_files/loginCtrl.js" charset="utf-8"></script>
+    <script src="./localhost_files/prodSitesCtrl.js" charset="utf-8"></script>
+    <script src="./localhost_files/uatSitesCtrl.js" charset="utf-8"></script>
+    <script src="./localhost_files/userProfileCtrl.js" charset="utf-8"></script>
+    <script src="./localhost_files/userProfileEditCtrl.js" charset="utf-8"></script>
+
+    <!-- Directives -->
+    <script src="./localhost_files/navbar.js" charset="utf-8"></script>
+  
+
+<div class="hiddendiv common"></div><div class="drag-target" style="left: 0px; touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></div><div class="drag-target" style="left: 0px; touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></div><div class="drag-target" style="left: 0px; touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></div></body></html>
