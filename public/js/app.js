@@ -2,20 +2,6 @@ angular.module('myApp', ['ui.router'])
   .config(function($stateProvider, $urlRouterProvider) {
 
     $stateProvider
-    .state('home', {
-      url: '/home',
-      templateUrl: '../features/home/home.html',
-      controller: 'homeCtrl',
-      // resolve: {
-      //   user: function($rootScope, $state, mainService) {
-      //     mainService.validateIfLoggedIn().then(function(response) {
-      //       if(response.data = 'fail') {
-      //         $state.go('login');
-      //       }
-      //     })
-      //   }
-      // }
-    })
 
     .state('login', {
       url: '/login',
@@ -53,10 +39,10 @@ angular.module('myApp', ['ui.router'])
       // }
     })
 
-    .state('custProfile', {
-      url: '/custprofile',
-      templateUrl: '../features/custprofile/custProfile.html',
-      controller: 'custProfileCtrl',
+    .state('customers', {
+      url: '/customers',
+      templateUrl: '../features/customers/customers.html',
+      controller: 'customersCtrl',
       // resolve: {
       //   user: function($rootScope, $state, mainService) {
       //     mainService.validateIfLoggedIn().then(function(response) {

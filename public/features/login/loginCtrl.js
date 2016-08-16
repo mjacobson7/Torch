@@ -12,7 +12,7 @@ angular.module('myApp')
         $scope.password = '';
         if(response.data !== 'Failed to authenticate') {
           $rootScope.user = response.data;
-          $state.go('home');
+          $state.go('customers');
         } else {
           // TODO: Add an failed login alert
         }
