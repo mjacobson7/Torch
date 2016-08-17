@@ -3,7 +3,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var session = require('express-session');
 var mongoose = require('mongoose');
 var cookieParser = require('cookie-parser');
-var secrets = process.env['SECRET'];
+var secrets = require('./secrets');
 var User = require('../app/users/userModel.js');
 
 module.exports = function(app) {
