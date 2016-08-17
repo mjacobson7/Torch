@@ -10,7 +10,7 @@ module.exports = function(app) {
 
   app.use(cookieParser());
 
-  app.use(session({ secret: process.env['SECRET'] })); // session secret
+  app.use(session({ secret: adslfkajdsgioew8932glkjasgdiuhfe908dsaglk2 })); // session secret
   app.use(passport.initialize());
   app.use(passport.session()); // persistent login sessions
 
