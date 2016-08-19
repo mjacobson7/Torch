@@ -3,14 +3,14 @@ var LocalStrategy = require('passport-local').Strategy;
 var session = require('express-session');
 var mongoose = require('mongoose');
 var cookieParser = require('cookie-parser');
-var secrets = require('./secrets');
+// var secrets = require('./secrets');
 var User = require('../app/users/userModel.js');
 
 module.exports = function(app) {
 
   app.use(cookieParser());
 
-  app.use(session({ secret: secrets.secret })); // session secret
+  app.use(session({ secret: 'adslfkajdsgioew8932glkjasgdiuhfe908dsaglk2' })); // session secret
   app.use(passport.initialize());
   app.use(passport.session()); // persistent login sessions
 
