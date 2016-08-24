@@ -6,7 +6,16 @@ angular.module('myApp', ['ui.router'])
     .state('login', {
       url: '/login',
       templateUrl: '../features/login/login.html',
-      controller: 'loginCtrl'
+      controller: 'loginCtrl',
+      resolve: {
+        user: function($rootScope, $state, mainService) {
+          mainService.validateIfLoggedIn().then(function(response) {
+            if(response.data.passport.user) {
+              $state.go('customers');
+            }
+          })
+        }
+      }
     })
 
     .state('userProfile', {

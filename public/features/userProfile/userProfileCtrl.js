@@ -7,4 +7,14 @@ angular.module('myApp')
       $state.go('updateProfile');
     };
 
+    var validateIfLoggedIn = function() {
+      mainService.validateIfLoggedIn().then(function(response) {
+        console.log(response.data);
+        $scope.user = response.data;
+      })
+    }
+
+    validateIfLoggedIn();
+
+
   }); //end

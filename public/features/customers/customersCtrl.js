@@ -3,6 +3,7 @@ angular.module('myApp')
 
         console.log($rootScope.user);
 
+
         $scope.sortType = 'name';
         $scope.sortReverse = false;
         $scope.searchCompany = '';
@@ -17,5 +18,14 @@ angular.module('myApp')
           { name: "Facebook", prod: "https://facebook.torchlms.com/login/defaultView", uat: "https://facebook-uat.torchlms.com/login/defaultView"},
           { name: "Dev Mountain", prod: "https://devmountain.torchlms.com/login/defaultView", uat: "https://devmountain-uat.torchlms.com/login/defaultView"}
         ]
+
+        var validateIfLoggedIn = function() {
+          mainService.validateIfLoggedIn().then(function(response) {
+            console.log(response.data);
+            $scope.user = response.data;
+          })
+        }
+
+        validateIfLoggedIn();
 
   }); //end
