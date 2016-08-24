@@ -10,13 +10,13 @@ angular.module('myApp')
 
 
         $scope.customers = [
-          { name: "Toyota", prod: "http://torchlms.com", uat: "http://.torchlms.com"},
-          { name: "Hyundai of Canada", prod: "https://torchlms.com/login/default-view?forceManual=true", uat: "https://torchlms.com/login/default-view?forceManual=true"},
-          { name: "Devereux", prod: "https://torchlms.com/login/defaultView", uat: "https://torchlms.com/login/defaultView"},
-          { name: "Google", prod: "https://google.torchlms.com/login/defaultView", uat: "https://google-uat.torchlms.com/login/defaultView"},
-          { name: "Apple", prod: "https://apple.torchlms.com/login/defaultView", uat: "https://apple-uat.torchlms.com/login/defaultView"},
-          { name: "Facebook", prod: "https://facebook.torchlms.com/login/defaultView", uat: "https://facebook-uat.torchlms.com/login/defaultView"},
-          { name: "Dev Mountain", prod: "https://devmountain.torchlms.com/login/defaultView", uat: "https://devmountain-uat.torchlms.com/login/defaultView"}
+          { name: "Toyota", prod: "torchlms.com", uat: "torchlms.com"},
+          { name: "Hyundai of Canada", prod: "torchlms.com", uat: "torchlms.com"},
+          { name: "Devereux", prod: "torchlms.com", uat: "torchlms.com"},
+          { name: "Google", prod: "google.torchlms.com", uat: "google-uat.torchlms.com"},
+          { name: "Apple", prod: "apple.torchlms.com", uat: "apple-uat.torchlms.com"},
+          { name: "Facebook", prod: "facebook.torchlms.com", uat: "facebook-uat.torchlms.com"},
+          { name: "Dev Mountain", prod: "devmountain.torchlms.com", uat: "devmountain-uat.torchlms.com"}
         ]
 
         var validateIfLoggedIn = function() {
