@@ -3,14 +3,22 @@ var LocalStrategy = require('passport-local').Strategy;
 var session = require('express-session');
 var mongoose = require('mongoose');
 var cookieParser = require('cookie-parser');
-// var secrets = require('./secrets');
+var secrets = require('./secrets');
 var User = require('../app/users/userModel.js');
+var MongoStore = require('connect-mongo')(session);
 
 module.exports = function(app) {
 
   app.use(cookieParser());
 
-  app.use(session({ secret: 'adslfkajdsgioew8932glkjasgdiuhfe908dsaglk2' })); // session secret
+
+  app.use(session({
+    secret: secrets.secret,
+    saveUninitialized: true,
+    resave: true,
+    store: new MongoStore({ mongooseConnection: mongoose.connection})
+   })); // session secret
+
   app.use(passport.initialize());
   app.use(passport.session()); // persistent login sessions
 
@@ -123,7 +131,8 @@ passport.use('local-login', new LocalStrategy({
   });
 
   app.get('/auth/validateIfLoggedIn', function(req, res) {
-    if(!req.user) {
+    console.log('req.session =====>' + req.session.id);
+    if(!req.session) {
       res.send('fail');
     } else {
       res.status(200).json(req.user);
@@ -131,9 +140,9 @@ passport.use('local-login', new LocalStrategy({
   });
 
 
-  //===================//
+//=====================//
 // USER LOGOUT ROUTES //
-//==================//
+//====================//
 app.get('/logout', function(req, res){
   req.logout();
   res.redirect('/#/login');
