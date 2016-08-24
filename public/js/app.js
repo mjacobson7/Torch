@@ -8,10 +8,12 @@ angular.module('myApp', ['ui.router'])
       templateUrl: '../features/login/login.html',
       controller: 'loginCtrl',
       resolve: {
-        user: function($rootScope, $state, mainService) {
+        user: function($state, mainService) {
           mainService.validateIfLoggedIn().then(function(response) {
             if(response.data.passport.user) {
               $state.go('customers');
+            } else {
+              $state.go('login');
             }
           })
         }
