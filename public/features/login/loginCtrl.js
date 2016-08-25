@@ -1,16 +1,6 @@
 angular.module('myApp')
   .controller('loginCtrl', function($rootScope, $scope, mainService, $state) {
-
-    $scope.validateIfLoggedIn = function() {
-      mainService.validateIfLoggedIn().then(function(response) {
-        if(!response.data.passport.user) {
-          $state.go('login');
-        }
-      })
-    };
-
-    $scope.validateIfLoggedIn();
-
+    
     $scope.login = function(email, password) {
       var user = {
         email: email,
