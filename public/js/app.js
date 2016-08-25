@@ -7,15 +7,15 @@ angular.module('myApp', ['ui.router'])
       url: '/login',
       templateUrl: '../features/login/login.html',
       controller: 'loginCtrl',
-      resolve: {
-        user: function($state, mainService) {
-          mainService.validateIfLoggedIn().then(function(response) {
-            if(response.data.passport.user) {
-              $state.go('customers');
-            }
-          })
-        }
-      }
+      // resolve: {
+      //   user: function($state, mainService) {
+      //     mainService.validateIfLoggedIn().then(function(response) {
+      //       if(response.data.passport.user) {
+      //         $state.go('customers');
+      //       }
+      //     })
+      //   }
+      // }
     })
 
     .state('userProfile', {
@@ -63,6 +63,8 @@ angular.module('myApp', ['ui.router'])
       }
     })
 
-    $urlRouterProvider.otherwise('/login');
+
+
+    $urlRouterProvider.otherwise('/customers');
 
 }); //end
