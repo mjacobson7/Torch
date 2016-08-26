@@ -1,6 +1,6 @@
 angular.module('myApp')
   .controller('loginCtrl', function($rootScope, $scope, mainService, $state) {
-    
+
     $scope.login = function(email, password) {
       var user = {
         email: email,
@@ -17,5 +17,9 @@ angular.module('myApp')
         }
       });
     };
+
+    $scope.tooBad = function() {
+      alert('Too bad!');
+    }
 
   }); //end
