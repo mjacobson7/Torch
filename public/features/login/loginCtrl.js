@@ -13,13 +13,13 @@ angular.module('myApp')
           $rootScope.user = response.data;
           $state.go('customers');
         } else {
-          // TODO: Add an failed login alert
+          Materialize.toast('Invalid Credentials!', 4000)
         }
       });
     };
 
     $scope.tooBad = function() {
-      alert('Too bad!');
+      Materialize.toast('Too bad! This feature hasn\'t been set up yet!', 4000)
     }
 
   }); //end
