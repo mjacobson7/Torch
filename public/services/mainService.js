@@ -14,7 +14,7 @@ angular.module('myApp')
     this.validateIfLoggedIn = function() {
       return $http ({
         method: 'GET',
-        url: '/auth/validateIfLoggedIn'
+        url: '/auth/validateIfLoggedIn' 
       }).then(function(response) {
         return response;
       })
