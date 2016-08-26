@@ -65,6 +65,6 @@ angular.module('myApp', ['ui.router'])
 
 
 
-    $urlRouterProvider.otherwise('/customers');
+    $urlRouterProvider.otherwise('/login');
 
 }); //end
