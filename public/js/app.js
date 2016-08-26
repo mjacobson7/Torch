@@ -7,17 +7,17 @@ angular.module('myApp', ['ui.router'])
       url: '/home',
       templateUrl: '../features/home/home.html',
       controller: 'homeCtrl',
-      resolve: {
-        nav: function($state, mainService) {
-          mainService.validateIfLoggedIn().then(function(response) {
-            if(response.data.passport.user) {
-              $state.go('customers');
-            } else {
-              $state.go('login');
-            }
-          })
-        }
-      }
+      // resolve: {
+      //   nav: function($state, mainService) {
+      //     mainService.validateIfLoggedIn().then(function(response) {
+      //       if(response.data.passport.user) {
+      //         $state.go('customers');
+      //       } else {
+      //         $state.go('login');
+      //       }
+      //     })
+      //   }
+      // }
     })
 
     .state('login', {
