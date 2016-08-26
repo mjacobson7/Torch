@@ -3,6 +3,23 @@ angular.module('myApp', ['ui.router'])
 
     $stateProvider
 
+    .state('home', {
+      url: '/home',
+      templateUrl: '../features/home/home.html',
+      controller: 'homeCtrl',
+      resolve: {
+        nav: function($state, mainService) {
+          mainService.validateIfLoggedIn().then(function(response) {
+            if(response.data.passport.user) {
+              $state.go('customers');
+            } else {
+              $state.go('login');
+            }
+          })
+        }
+      }
+    })
+
     .state('login', {
       url: '/login',
       templateUrl: '../features/login/login.html',
@@ -65,6 +82,6 @@ angular.module('myApp', ['ui.router'])
 
 
 
-    $urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise('/home');
 
 }); //end
