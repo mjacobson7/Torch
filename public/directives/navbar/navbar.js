@@ -14,6 +14,7 @@ angular.module('myApp')
 
         var validateIfLoggedIn = function() {
           mainService.validateIfLoggedIn().then(function(response) {
+            console.log(response);
             if(response.data.admin) {
               $scope.isAdmin = true;
             } else {

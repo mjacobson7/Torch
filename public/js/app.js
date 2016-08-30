@@ -10,7 +10,7 @@ angular.module('myApp', ['ui.router'])
       resolve: {
         nav: function($state, mainService) {
           mainService.validateIfLoggedIn().then(function(response) {
-            if(!response.data.passport.user) {
+            if(!response.data._id) {
               $state.go('login');
             } else {
               $state.go('customers');
@@ -27,7 +27,8 @@ angular.module('myApp', ['ui.router'])
       resolve: {
         user: function($state, mainService) {
           mainService.validateIfLoggedIn().then(function(response) {
-            if(!response.data.passport.user) {
+            console.log(response.data._id);
+            if(!response.data._id) {
               $state.go('login');
             } else {
               $state.go('customers');
@@ -44,7 +45,7 @@ angular.module('myApp', ['ui.router'])
       resolve: {
         user: function($rootScope, $state, mainService) {
           mainService.validateIfLoggedIn().then(function(response) {
-            if(!response.data.passport.user) {
+            if(!response.data._id) {
               $state.go('login');
             }
           })
@@ -59,7 +60,7 @@ angular.module('myApp', ['ui.router'])
       resolve: {
         user: function($rootScope, $state, mainService) {
           mainService.validateIfLoggedIn().then(function(response) {
-            if(!response.data.passport.user) {
+            if(!response.data._id) {
               $state.go('login');
             }
           })
@@ -74,8 +75,7 @@ angular.module('myApp', ['ui.router'])
       resolve: {
         user: function($rootScope, $state, mainService) {
           mainService.validateIfLoggedIn().then(function(response) {
-            console.log(response);
-            if(!response.data.passport.user) {
+            if(!response.data._id) {
               $state.go('login');
             }
           })
@@ -90,7 +90,7 @@ angular.module('myApp', ['ui.router'])
       resolve: {
         user: function($rootScope, $state, mainService) {
           mainService.validateIfLoggedIn().then(function(response) {
-            if(!response.data.passport.user && !$rootScope.user.admin) {
+            if(!response.data._id && !$rootScope.user.admin) {
               $state.go('login');
             }
           })
