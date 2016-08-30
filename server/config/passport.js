@@ -130,7 +130,7 @@ passport.use('local-login', new LocalStrategy({
     res.send('Failed to authenticate');
   });
 
-  app.get('/auth/validateIfLoggedIn', function(req, res) {
+  app.get('/auth/validateIfLoggedIn', function(req, res) {z
     if(!req.session) {
       res.status(500).send('fail');
     } else {
@@ -139,6 +139,7 @@ passport.use('local-login', new LocalStrategy({
   });
 
   app.get('/auth/getprofile', function(req, res) {
+    console.log('req.user ===> ' + req.user);
     if(!req.user) {
       res.status(500).send('failed');
     } else {
