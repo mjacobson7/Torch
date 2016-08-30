@@ -130,7 +130,7 @@ passport.use('local-login', new LocalStrategy({
     res.send('Failed to authenticate');
   });
 
-  app.get('/auth/validateIfLoggedIn', function(req, res) {z
+  app.get('/auth/validateIfLoggedIn', function(req, res) {
     if(!req.session) {
       res.status(500).send('fail');
     } else {
