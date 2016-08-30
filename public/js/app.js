@@ -30,6 +30,8 @@ angular.module('myApp', ['ui.router'])
             console.log(response.data);
             if(!response.data) {
               $state.go('login');
+            } else {
+              $state.go('customers');
             }
           })
         }
