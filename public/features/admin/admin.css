@@ -1,0 +1,25 @@
+.createUser {
+  height: 510px;
+  border: 1px solid #DEDEDE;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.allUsers {
+    height: 510px;
+    border: 1px solid #DEDEDE;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.adminTitle {
+  text-align: center;
+}
+
+.checkBox {
+  margin-left: 10px;
+}
+
+#create {
+  margin-left: 10px;
+}

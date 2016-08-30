@@ -1,9 +1,6 @@
 angular.module('myApp')
   .controller('customersCtrl', function($rootScope, $scope, mainService, $state) {
 
-        console.log($rootScope.user);
-
-
         $scope.sortType = 'name';
         $scope.sortReverse = false;
         $scope.searchCompany = '';
@@ -21,7 +18,6 @@ angular.module('myApp')
 
         var validateIfLoggedIn = function() {
           mainService.validateIfLoggedIn().then(function(response) {
-            console.log(response.data);
             $scope.user = response.data;
           })
         }

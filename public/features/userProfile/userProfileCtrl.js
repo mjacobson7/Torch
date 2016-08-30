@@ -3,18 +3,26 @@ angular.module('myApp')
 
     $scope.user = $rootScope.user;
 
-    $scope.editProfile = function() {
-      $state.go('updateProfile');
-    };
 
-    var validateIfLoggedIn = function() {
-      mainService.validateIfLoggedIn().then(function(response) {
-        console.log(response.data);
+    var getProfile = function() {
+      mainService.getProfile().then(function(response) {
         $scope.user = response.data;
       })
     }
 
-    validateIfLoggedIn();
+    getProfile();
+
+    $scope.updateProfile = function(password1, password2) {
+      if(password1 === password2) {
+        var user = {
+          password: password1,
+          id: $rootScope.user._id
+        }
+        mainService.updateProfile(user).then(function(response) {
+
+      })
+    }
+  };
 
 
   }); //end

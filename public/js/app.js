@@ -10,10 +10,10 @@ angular.module('myApp', ['ui.router'])
       resolve: {
         nav: function($state, mainService) {
           mainService.validateIfLoggedIn().then(function(response) {
-            if(response.data.passport.user) {
-              $state.go('customers');
-            } else {
+            if(!response.data._id) {
               $state.go('login');
+            } else {
+              $state.go('customers');
             }
           })
         }
@@ -27,7 +27,7 @@ angular.module('myApp', ['ui.router'])
       resolve: {
         user: function($state, mainService) {
           mainService.validateIfLoggedIn().then(function(response) {
-            if(response.data.passport.user) {
+            if(response.data._id) {
               $state.go('customers');
             }
           })
@@ -42,7 +42,7 @@ angular.module('myApp', ['ui.router'])
       resolve: {
         user: function($rootScope, $state, mainService) {
           mainService.validateIfLoggedIn().then(function(response) {
-            if(!response.data.passport.user) {
+            if(!response.data._id) {
               $state.go('login');
             }
           })
@@ -57,7 +57,7 @@ angular.module('myApp', ['ui.router'])
       resolve: {
         user: function($rootScope, $state, mainService) {
           mainService.validateIfLoggedIn().then(function(response) {
-            if(!response.data.passport.user) {
+            if(!response.data._id) {
               $state.go('login');
             }
           })
@@ -72,8 +72,23 @@ angular.module('myApp', ['ui.router'])
       resolve: {
         user: function($rootScope, $state, mainService) {
           mainService.validateIfLoggedIn().then(function(response) {
-            if(!response.data.passport.user) {
+            if(!response.data._id) {
               $state.go('login');
+            }
+          })
+        }
+      }
+    })
+
+    .state('admin', {
+      url: '/admin',
+      templateUrl: '../features/admin/admin.html',
+      controller: 'adminCtrl',
+      resolve: {
+        user: function($rootScope, $state, mainService) {
+          mainService.validateIfLoggedIn().then(function(response) {
+            if(!response.data._id || !$rootScope.user.admin) {
+              $state.go('home');
             }
           })
         }

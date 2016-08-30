@@ -131,13 +131,20 @@ passport.use('local-login', new LocalStrategy({
   });
 
   app.get('/auth/validateIfLoggedIn', function(req, res) {
-    console.log('req.session =====>' + req.session.id);
     if(!req.session) {
-      res.send('fail');
+      res.status(500).send('fail');
     } else {
-      res.status(200).json(req.session);
+      res.status(200).json(req.user);
     }
   });
+
+  app.get('/auth/getprofile', function(req, res) {
+    if(!req.user) {
+      res.status(500).send('failed');
+    } else {
+      res.status(200).json(req.user);
+    }
+  })
 
 
 //=====================//
