@@ -10,7 +10,7 @@ angular.module('myApp', ['ui.router'])
       resolve: {
         nav: function($state, mainService) {
           mainService.validateIfLoggedIn().then(function(response) {
-            if(!response.data) {
+            if(!response.data._id) {
               $state.go('login');
             } else {
               $state.go('customers');
