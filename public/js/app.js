@@ -10,7 +10,7 @@ angular.module('myApp', ['ui.router'])
       resolve: {
         nav: function($state, mainService) {
           mainService.validateIfLoggedIn().then(function(response) {
-            if(!response.data._id) {
+            if(!response.data) {
               $state.go('login');
             } else {
               $state.go('customers');
@@ -27,8 +27,9 @@ angular.module('myApp', ['ui.router'])
       resolve: {
         user: function($state, mainService) {
           mainService.validateIfLoggedIn().then(function(response) {
-            if(response) {
-              $state.go('customers');
+            console.log(response.data);
+            if(!response.data) {
+              $state.go('login');
             }
           })
         }
@@ -42,7 +43,7 @@ angular.module('myApp', ['ui.router'])
       resolve: {
         user: function($rootScope, $state, mainService) {
           mainService.validateIfLoggedIn().then(function(response) {
-            if(!response.data._id) {
+            if(!response.data) {
               $state.go('login');
             }
           })
@@ -57,7 +58,7 @@ angular.module('myApp', ['ui.router'])
       resolve: {
         user: function($rootScope, $state, mainService) {
           mainService.validateIfLoggedIn().then(function(response) {
-            if(!response.data._id) {
+            if(!response.data) {
               $state.go('login');
             }
           })
@@ -72,7 +73,7 @@ angular.module('myApp', ['ui.router'])
       resolve: {
         user: function($rootScope, $state, mainService) {
           mainService.validateIfLoggedIn().then(function(response) {
-            if(!response.data._id) {
+            if(!response.data) {
               $state.go('login');
             }
           })
@@ -87,8 +88,8 @@ angular.module('myApp', ['ui.router'])
       resolve: {
         user: function($rootScope, $state, mainService) {
           mainService.validateIfLoggedIn().then(function(response) {
-            if(!response.data._id || !$rootScope.user.admin) {
-              $state.go('home');
+            if(!response.data && !$rootScope.user.admin) {
+              $state.go('login');
             }
           })
         }

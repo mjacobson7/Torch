@@ -10,22 +10,19 @@ angular.module('myApp')
           $(".button-collapse").sideNav();
         });
 
+        // var answer
+
         var validateIfLoggedIn = function() {
           mainService.validateIfLoggedIn().then(function(response) {
-            $rootScope.user = response.data;
+            if(response.data.admin) {
+              $scope.isAdmin = true;
+            } else {
+              $scope.isAdmin = false;
+            }
           })
         }
 
         validateIfLoggedIn();
-
-        $scope.isAdmin = function() {
-          if($rootScope.user.admin) {
-          return true;
-        } else {
-          return false;
-        }
-        };
-
 
 
 

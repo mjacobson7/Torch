@@ -10,6 +10,7 @@ angular.module('myApp')
         $scope.email = '';
         $scope.password = '';
         if(response.data !== 'Failed to authenticate') {
+          console.log(response);
           $rootScope.user = response.data;
           $state.go('customers');
         } else {

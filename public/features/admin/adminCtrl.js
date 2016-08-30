@@ -3,18 +3,22 @@ angular.module('myApp')
 
     $scope.user = $rootScope.user;
 
+    var answer
+
     var validateIfLoggedIn = function() {
       mainService.validateIfLoggedIn().then(function(response) {
-        $rootScope.user = response.data;
+        if(response.data.admin) {
+          answer = true;
+        } else {
+          answer = false;
+        }
       })
     }
 
     validateIfLoggedIn();
 
     var isAdmin = function() {
-      if(!$rootScope.user.admin) {
-      $state.go('home');
-    }
+      return answer;
     };
 
     isAdmin();
