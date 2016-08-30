@@ -76,7 +76,7 @@ angular.module('myApp', ['ui.router'])
         user: function($rootScope, $state, mainService) {
           mainService.validateIfLoggedIn().then(function(response) {
             console.log(response);
-            if(!response.data._id) {
+            if(!response.data.passport.user) {
               $state.go('login');
             }
           })
