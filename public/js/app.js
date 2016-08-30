@@ -10,7 +10,7 @@ angular.module('myApp', ['ui.router'])
       resolve: {
         nav: function($state, mainService) {
           mainService.validateIfLoggedIn().then(function(response) {
-            if(!response.data._id) {
+            if(!response.data.passport.user) {
               $state.go('login');
             } else {
               $state.go('customers');
@@ -27,7 +27,7 @@ angular.module('myApp', ['ui.router'])
       resolve: {
         user: function($state, mainService) {
           mainService.validateIfLoggedIn().then(function(response) {
-            console.log(response.data._id);
+            console.log(response.data.passport.user);
             if(!response.data._id) {
               $state.go('login');
             } else {
@@ -45,7 +45,7 @@ angular.module('myApp', ['ui.router'])
       resolve: {
         user: function($rootScope, $state, mainService) {
           mainService.validateIfLoggedIn().then(function(response) {
-            if(!response.data._id) {
+            if(!response.data.passport.user) {
               $state.go('login');
             }
           })
@@ -60,7 +60,7 @@ angular.module('myApp', ['ui.router'])
       resolve: {
         user: function($rootScope, $state, mainService) {
           mainService.validateIfLoggedIn().then(function(response) {
-            if(!response.data._id) {
+            if(!response.data.passport.user) {
               $state.go('login');
             }
           })
@@ -76,7 +76,7 @@ angular.module('myApp', ['ui.router'])
         user: function($rootScope, $state, mainService) {
           mainService.validateIfLoggedIn().then(function(response) {
             console.log(response.data);
-            if(!response.data._id) {
+            if(!response.data.passport.user) {
               $state.go('login');
             }
           })
@@ -91,7 +91,7 @@ angular.module('myApp', ['ui.router'])
       resolve: {
         user: function($rootScope, $state, mainService) {
           mainService.validateIfLoggedIn().then(function(response) {
-            if(!response.data._id && !$rootScope.user.admin) {
+            if(!response.data.passport.user && !$rootScope.user.admin) {
               $state.go('login');
             }
           })
