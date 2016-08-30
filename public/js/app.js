@@ -28,7 +28,7 @@ angular.module('myApp', ['ui.router'])
         user: function($state, mainService) {
           mainService.validateIfLoggedIn().then(function(response) {
             console.log(response.data.passport.user);
-            if(!response.data._id) {
+            if(!response.data.passport.user) {
               $state.go('login');
             } else {
               $state.go('customers');
