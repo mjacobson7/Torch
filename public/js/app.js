@@ -45,7 +45,7 @@ angular.module('myApp', ['ui.router'])
       resolve: {
         user: function($rootScope, $state, mainService) {
           mainService.validateIfLoggedIn().then(function(response) {
-            if(!response.data) {
+            if(!response.data._id) {
               $state.go('login');
             }
           })
@@ -60,7 +60,7 @@ angular.module('myApp', ['ui.router'])
       resolve: {
         user: function($rootScope, $state, mainService) {
           mainService.validateIfLoggedIn().then(function(response) {
-            if(!response.data) {
+            if(!response.data._id) {
               $state.go('login');
             }
           })
@@ -75,7 +75,7 @@ angular.module('myApp', ['ui.router'])
       resolve: {
         user: function($rootScope, $state, mainService) {
           mainService.validateIfLoggedIn().then(function(response) {
-            if(!response.data) {
+            if(!response.data._id) {
               $state.go('login');
             }
           })
@@ -90,7 +90,7 @@ angular.module('myApp', ['ui.router'])
       resolve: {
         user: function($rootScope, $state, mainService) {
           mainService.validateIfLoggedIn().then(function(response) {
-            if(!response.data && !$rootScope.user.admin) {
+            if(!response.data._id && !$rootScope.user.admin) {
               $state.go('login');
             }
           })
