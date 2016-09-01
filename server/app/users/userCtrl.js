@@ -36,6 +36,16 @@ module.exports = {
         res.status(200).json(result);
       }
     })
+  },
+
+  getProfile: function(req, res) {
+    User.findById(req.params.id, function(err, result) {
+      if(err) {
+        res.status(500).send(err);
+      } else {
+        res.status(200).json(result);
+      }
+    })
   }
 
 }; //end

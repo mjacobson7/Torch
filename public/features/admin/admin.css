@@ -1,12 +1,5 @@
-.createUser {
-  height: 510px;
-  border: 1px solid #DEDEDE;
-  background-color: #fff;
-  border-radius: 5px;
-}
-
 .allUsers {
-    height: 510px;
+    margin-top: 10px;
     border: 1px solid #DEDEDE;
     background-color: #fff;
     border-radius: 5px;
@@ -22,4 +15,7 @@
 
 #create {
   margin-left: 10px;
+  margin-bottom: 10px;
 }
+
+.material-icons.trash { color: #000; }

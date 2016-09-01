@@ -138,14 +138,6 @@ passport.use('local-login', new LocalStrategy({
     }
   });
 
-  app.get('/auth/getprofile', function(req, res) {
-    if(!req.user) {
-      res.status(500).send('failed');
-    } else {
-      res.status(200).json(req.user);
-    }
-  })
-
 
 //=====================//
 // USER LOGOUT ROUTES //

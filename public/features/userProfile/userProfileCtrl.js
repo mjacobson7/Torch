@@ -5,7 +5,7 @@ angular.module('myApp')
 
 
     var getProfile = function() {
-      mainService.getProfile().then(function(response) {
+      mainService.getProfile($rootScope.user._id).then(function(response) {
         $scope.user = response.data;
       })
     }

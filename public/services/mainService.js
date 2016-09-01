@@ -30,16 +30,17 @@ angular.module('myApp')
       })
     };
 
-    this.getProfile = function() {
+    this.getProfile = function(id) {
       return $http ({
         method: 'GET',
-        url: '/auth/getprofile'
+        url: '/api/getProfile/' + id
       }).then(function(response) {
         return response;
       })
     };
 
     this.createUser = function(user) {
+      console.log(user);
       return $http ({
         method: 'POST',
         url: '/auth/signup',
