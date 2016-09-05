@@ -59,4 +59,13 @@ angular.module('myApp')
       })
     }
 
+    this.deleteUser = function(id) {
+      return $http ({
+        method: 'DELETE',
+        url: '/api/deleteuser/' + id
+      }).then(function(response) {
+        return response;
+      })
+    }
+
   }); //end

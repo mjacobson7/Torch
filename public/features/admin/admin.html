@@ -3,45 +3,7 @@
 <div class="container">
   <div class="row">
     <div class="col s12 m12 l12">
-
-  <!-- Modal Trigger -->
-  <button data-target="modal1" class="btn modal-trigger waves-effect waves-light btn orange darken-1">Create New User</button>
-
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-      <div class="createUser">
-        <div class="input-field col s6">
-          <input id="first_name" type="text" class="validate" ng-model="firstName">
-          <label for="first_name">First Name</label>
-        </div>
-        <div class="input-field col s6">
-          <input id="last_name" type="text" class="validate" ng-model="lastName">
-          <label for="last_name">Last Name</label>
-        </div>
-        <div class="input-field col s12">
-          <input id="email" type="text" class="validate" ng-model="email">
-          <label for="email">Email</label>
-        </div>
-        <div class="input-field col s12">
-          <input id="password" type="password" class="validate" ng-model="password1">
-          <label for="password">Password</label>
-        </div>
-        <div class="input-field col s12">
-          <input id="password" type="password" class="validate" ng-model="password2">
-          <label for="password">Re-enter Password</label>
-        </div>
-        <form action="#" class="checkBox">
-          <p>
-            <input type="checkbox" id="test5"/ ng-model="admin">
-            <label for="test5">Admin</label>
-          </p>
-        </form></br>
-        <a ui-sref="admin" id="create" class="waves-effect waves-light btn orange darken-1 modal-action modal-close" ng-click="createUser(firstName, lastName, email, password1, password2, admin)">Create</a>
-      </div>
-
-    </div>
-  </div>
+      <a ui-sref="newUser"><button class="waves-effect waves-light btn orange darken-1">Create New User</button></a>
     </div>
 
 
@@ -52,12 +14,15 @@
     <div class="col s12 m12 l12">
       <div class="allUsers">
         <h4 class="adminTitle">Active Users</h4>
-        <table class="bordered highlight">
+        <table class="bordered centered">
         <thead>
           <tr>
               <th data-field="name">Name</th>
               <th data-field="name">Email</th>
               <th data-field="name">Admin</th>
+              <th data-field="name">Edit</th>
+              <th data-field="name">Delete</th>
+              <th class="hideText" data-field="name">Delete</th>
           </tr>
         </thead>
 
@@ -66,6 +31,16 @@
             <td>{{user.firstName}} {{user.lastName}}</td>
             <td>{{user.email}}</td>
             <td>{{user.admin}}</td>
+            <td><a><i class="material-icons edit">mode_edit</i></a></td>
+            <td>
+              <div class="switch">
+                <label>
+                  <input type="checkbox" ng-click="confirmDelete = !confirmDelete">
+                  <span class="lever"></span>
+                </label>
+              </div>
+            </td>
+            <td><a ng-click="deleteUser(user._id, user.admin)" ng-show="confirmDelete"><i class="material-icons trash">delete</i></a></td>
           </tr>
         </tbody>
       </table>

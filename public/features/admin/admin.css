@@ -18,4 +18,28 @@
   margin-bottom: 10px;
 }
 
-.material-icons.trash { color: #000; }
+.material-icons.edit {
+  color: #000;
+  cursor: pointer;
+ }
+
+.material-icons.trash {
+  color: red;
+  cursor: pointer;
+ }
+
+ .material-icons.trash:active {
+   color: #dedede;
+  }
+
+  .material-icons.edit:active {
+    color: #dedede;
+  }
+
+  .switch {
+    display: inline;
+  }
+
+  .hideText {
+    color: #fff;
+  }

@@ -97,6 +97,21 @@ angular.module('myApp', ['ui.router'])
       }
     })
 
+    .state('newUser', {
+      url: '/newuser',
+      templateUrl: '../features/newUser/newUser.html',
+      controller: 'newUserCtrl',
+      resolve: {
+        user: function($rootScope, $state, mainService) {
+          mainService.validateIfLoggedIn().then(function(response) {
+            if(!response.data.admin) {
+              $state.go('login');
+            }
+          })
+        }
+      }
+    })
+
 
 
     $urlRouterProvider.otherwise('/home');
