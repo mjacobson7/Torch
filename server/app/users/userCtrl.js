@@ -39,7 +39,6 @@ module.exports = {
   },
 
   deleteUser: function(req, res) {
-    console.log(req.params.id);
     User.findByIdAndRemove(req.params.id, function(err, result) {
       if(err) {
         res.status(500).send(err);

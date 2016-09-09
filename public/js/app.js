@@ -111,8 +111,6 @@ angular.module('myApp', ['ui.router'])
       }
     })
 
-
-
     $urlRouterProvider.otherwise('/home');
 
 }); //end

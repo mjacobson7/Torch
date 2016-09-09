@@ -18,8 +18,8 @@ angular.module('myApp')
       mainService.deleteUser(id).then(function(response) {
         Materialize.toast('User deleted!', 4000, 'rounded');
         getUsers();
-      })
-    }
+        })
+      }
     };
 
 

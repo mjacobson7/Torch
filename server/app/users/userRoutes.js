@@ -8,5 +8,4 @@ module.exports = function(app) {
   app.delete('/api/deleteuser/:id', userCtrl.deleteUser);
 
 
-
 }; //end
