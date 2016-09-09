@@ -19,6 +19,8 @@ angular.module('myApp')
         mainService.updateProfile(user).then(function(response) {
 
       })
+    } else {
+
     }
   };
 
