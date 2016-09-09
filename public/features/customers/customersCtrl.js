@@ -16,12 +16,16 @@ angular.module('myApp')
           { name: "Dev Mountain", prod: "devmountain.torchlms.com", uat: "devmountain-uat.torchlms.com"}
         ]
 
-        var validateIfLoggedIn = function() {
-          mainService.validateIfLoggedIn().then(function(response) {
-            $scope.user = response.data;
-          })
-        }
+        // var validateIfLoggedIn = function() {
+        //   mainService.validateIfLoggedIn().then(function(response) {
+        //     console.log(response);
+        //   }).catch(function(err) {
+        //         console.log(err);
+        //       })
+        // }
+        //
+        // validateIfLoggedIn();
 
-        validateIfLoggedIn();
+
 
   }); //end

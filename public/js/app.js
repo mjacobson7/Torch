@@ -8,12 +8,12 @@ angular.module('myApp', ['ui.router'])
       templateUrl: '../features/home/home.html',
       controller: 'homeCtrl',
       resolve: {
-        nav: function($state, mainService) {
+        user: function(mainService, $state) {
           mainService.validateIfLoggedIn().then(function(response) {
-            if(!response.data._id) {
-              $state.go('login');
-            } else {
+            if(response.data._id) {
               $state.go('customers');
+            } else {
+              $state.go('login');
             }
           })
         }
@@ -25,11 +25,9 @@ angular.module('myApp', ['ui.router'])
       templateUrl: '../features/login/login.html',
       controller: 'loginCtrl',
       resolve: {
-        user: function($state, mainService) {
+        user: function(mainService, $state) {
           mainService.validateIfLoggedIn().then(function(response) {
-            if(!response.data._id) {
-              $state.go('login');
-            } else {
+            if(response.data._id) {
               $state.go('customers');
             }
           })
@@ -42,7 +40,7 @@ angular.module('myApp', ['ui.router'])
       templateUrl: '../features/userProfile/userProfile.html',
       controller: 'userProfileCtrl',
       resolve: {
-        user: function($rootScope, $state, mainService) {
+        user: function(mainService, $state) {
           mainService.validateIfLoggedIn().then(function(response) {
             if(!response.data._id) {
               $state.go('login');
@@ -57,7 +55,7 @@ angular.module('myApp', ['ui.router'])
       templateUrl: '../features/updateProfile/updateProfile.html',
       controller: 'updateProfileCtrl',
       resolve: {
-        user: function($rootScope, $state, mainService) {
+        user: function(mainService, $state) {
           mainService.validateIfLoggedIn().then(function(response) {
             if(!response.data._id) {
               $state.go('login');
@@ -72,7 +70,7 @@ angular.module('myApp', ['ui.router'])
       templateUrl: '../features/customers/customers.html',
       controller: 'customersCtrl',
       resolve: {
-        user: function($rootScope, $state, mainService) {
+        user: function(mainService, $state) {
           mainService.validateIfLoggedIn().then(function(response) {
             if(!response.data._id) {
               $state.go('login');
@@ -87,7 +85,7 @@ angular.module('myApp', ['ui.router'])
       templateUrl: '../features/admin/admin.html',
       controller: 'adminCtrl',
       resolve: {
-        user: function($rootScope, $state, mainService) {
+        user: function(mainService, $state) {
           mainService.validateIfLoggedIn().then(function(response) {
             if(!response.data.admin) {
               $state.go('login');
@@ -97,12 +95,13 @@ angular.module('myApp', ['ui.router'])
       }
     })
 
+
     .state('newUser', {
       url: '/newuser',
       templateUrl: '../features/newUser/newUser.html',
       controller: 'newUserCtrl',
       resolve: {
-        user: function($rootScope, $state, mainService) {
+        user: function(mainService, $state) {
           mainService.validateIfLoggedIn().then(function(response) {
             if(!response.data.admin) {
               $state.go('login');

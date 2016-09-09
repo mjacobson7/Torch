@@ -1,16 +1,14 @@
 angular.module('myApp')
   .controller('userProfileCtrl', function($rootScope, $scope, $state, mainService) {
 
-    $scope.user = $rootScope.user;
 
-
-    var getProfile = function() {
-      mainService.getProfile($rootScope.user._id).then(function(response) {
+    var validateIfLoggedIn = function() {
+      mainService.validateIfLoggedIn().then(function(response) {
         $scope.user = response.data;
       })
     }
 
-    getProfile();
+    validateIfLoggedIn();
 
     $scope.updateProfile = function(password1, password2) {
       if(password1 === password2) {

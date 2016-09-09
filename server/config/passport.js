@@ -5,7 +5,6 @@ var mongoose = require('mongoose');
 var cookieParser = require('cookie-parser');
 var secrets = require('./secrets');
 var User = require('../app/users/userModel.js');
-var MongoStore = require('connect-mongo')(session);
 
 module.exports = function(app) {
 
@@ -16,7 +15,6 @@ module.exports = function(app) {
     secret: secrets.secret,
     saveUninitialized: true,
     resave: true,
-    store: new MongoStore({ mongooseConnection: mongoose.connection})
    })); // session secret
 
   app.use(passport.initialize());
@@ -131,10 +129,11 @@ passport.use('local-login', new LocalStrategy({
   });
 
   app.get('/auth/validateIfLoggedIn', function(req, res) {
-    if(req.session) {
+    console.log("req.user ====> " + req.user);
+    if(req.user) {
       res.status(200).json(req.user);
     } else {
-      res.status(500).send('Failed to authenticate');
+      res.send('Failed to authenticate');
     }
   });
 
