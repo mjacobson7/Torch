@@ -69,7 +69,7 @@ module.exports = function(app) {
                newUser.save(function(err) {
                    if (err)
                        throw err;
-                   return done(null, newUser);
+                   return done(null);
                });
            }
 
