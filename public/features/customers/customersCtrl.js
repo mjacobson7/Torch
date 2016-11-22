@@ -7,7 +7,7 @@ angular.module('myApp')
 
 
         $scope.customers = [
-          { name: "Toyota", prod: "http://www.toyota.torchlms.com", uat: "www.toyota-uat.torchlms.com"},
+          { name: "Toyota", prod: "https://www.toyota.torchlms.com", uat: "www.toyota-uat.torchlms.com"},
           { name: "Hyundai of Canada", prod: "torchlms.com", uat: "torchlms.com"},
           { name: "Devereux", prod: "torchlms.com", uat: "torchlms.com"},
           { name: "Google", prod: "google.torchlms.com", uat: "google-uat.torchlms.com"},
