@@ -44,8 +44,8 @@
         <tbody>
           <tr ng-repeat="customer in customers | orderBy:sortType:sortReverse | filter: searchCompany">
             <td>{{customer.name}}</td>
-            <td><a href={{customer.prod}}>{{customer.prod}}</a></td>
-            <td><a href="{{customer.uat}}">{{customer.uat}}</a></td>
+            <td><a target="_blank" href={{customer.prod}}>{{customer.prod}}</a></td>
+            <td><a target="_blank" href="{{customer.uat}}">{{customer.uat}}</a></td>
           </tr>
         </tbody>
       </table>
