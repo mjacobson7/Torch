@@ -3,16 +3,16 @@
     <img class="loginLogo" src="../../assets/logo2.png" alt=""/>
 
       <div id="loginEmail" class="input-field col s6">
-        <input id="first_name" type="text" class="validate" ng-model="email">
+        <input id="first_name" type="email" class="validate" ng-model="user.email">
         <label for="first_name">Username</label>
       </div>
 
       <div id="loginPassword" class="input-field col s6">
-        <input id="last_name" type="password" class="validate" ng-model="password">
+        <input id="last_name" type="password" class="validate" ng-model="user.password">
         <label for="last_name">Password</label>
       </div>
 
-        <a class="waves-effect waves-light btn orange" type="submit" ng-click="login(email, password)">Login</a></br>
+        <a id="loginButton" class="waves-effect waves-light btn orange" type="submit" ng-click="login(user)">Login</a></br>
 
       <a href="" ng-click="tooBad()">Forgot Password?</a>
 

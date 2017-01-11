@@ -1,5 +1,5 @@
 angular.module('myApp')
-  .controller('customersCtrl', function($rootScope, $scope, mainService, $state) {
+  .controller('customersCtrl', function($scope, mainService, $state) {
 
         $scope.sortType = 'name';
         $scope.sortReverse = false;
@@ -47,16 +47,6 @@ angular.module('myApp')
 
 
         ]
-
-        // var validateIfLoggedIn = function() {
-        //   mainService.validateIfLoggedIn().then(function(response) {
-        //     console.log(response);
-        //   }).catch(function(err) {
-        //         console.log(err);
-        //       })
-        // }
-        //
-        // validateIfLoggedIn();
 
 
 

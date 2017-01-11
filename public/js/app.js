@@ -10,6 +10,7 @@ angular.module('myApp', ['ui.router'])
       resolve: {
         user: function(mainService, $state) {
           mainService.validateIfLoggedIn().then(function(response) {
+            console.table(response);
             if(response.data._id) {
               $state.go('customers');
             } else {

@@ -1,5 +1,5 @@
 angular.module('myApp')
-  .controller('userProfileCtrl', function($rootScope, $scope, $state, mainService) {
+  .controller('userProfileCtrl', function($scope, $state, mainService) {
 
 
     var validateIfLoggedIn = function() {
@@ -14,13 +14,14 @@ angular.module('myApp')
       if(password1 === password2) {
         var user = {
           password: password1,
-          id: $rootScope.user._id
+          id: $scope.user._id
         }
         mainService.updateProfile(user).then(function(response) {
-
+          $scope.password = !$scope.password;
+          Materialize.toast('Password updated successfully!', 4000, 'rounded');
       })
     } else {
-
+      Materialize.toast('Passwords don\'t match!', 4000, 'rounded');
     }
   };
 

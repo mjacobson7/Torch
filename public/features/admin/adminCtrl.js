@@ -1,7 +1,6 @@
 angular.module('myApp')
-  .controller('adminCtrl', function($rootScope, $scope, $state, mainService) {
+  .controller('adminCtrl', function($scope, $state, mainService) {
 
-    $scope.user = $rootScope.user;
 
     var getUsers = function() {
       mainService.getUsers().then(function(response) {

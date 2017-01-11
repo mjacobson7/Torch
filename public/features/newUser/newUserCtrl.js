@@ -1,5 +1,5 @@
 angular.module('myApp')
-  .controller('newUserCtrl', function($rootScope, $scope, mainService, $state) {
+  .controller('newUserCtrl', function($scope, mainService, $state) {
 
     $scope.createUser = function(firstName, lastName, email, password1, password2, admin) {
       var setAdmin;

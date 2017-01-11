@@ -129,7 +129,6 @@ passport.use('local-login', new LocalStrategy({
   });
 
   app.get('/auth/validateIfLoggedIn', function(req, res) {
-    console.log("req.user ====> " + req.user);
     if(req.user) {
       res.status(200).json(req.user);
     } else {

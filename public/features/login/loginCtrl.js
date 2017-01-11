@@ -1,17 +1,9 @@
 angular.module('myApp')
-  .controller('loginCtrl', function($rootScope, $scope, mainService, $state) {
+  .controller('loginCtrl', function($scope, mainService, $state) {
 
-    $scope.login = function(email, password) {
-      var user = {
-        email: email,
-        password: password
-      };
+    $scope.login = function(user) {
       mainService.login(user).then(function(response) {
-        $scope.email = '';
-        $scope.password = '';
         if(response.data !== 'Failed to authenticate') {
-          console.log(response);
-          $rootScope.user = response.data;
           $state.go('customers');
         } else {
           Materialize.toast('Invalid Credentials!', 4000)
