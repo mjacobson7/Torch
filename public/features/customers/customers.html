@@ -9,48 +9,44 @@
           <label for="icon_prefix">Search</label>
         </div>
 
+         <table class="responsive-table bordered highlight">
+          <thead>
+            <tr>
+                <th data-field="id">
+                  <a href="" ng-click="sortType = 'name'; sortReverse = !sortReverse">
+                    Company
+                    <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
+                    <span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
+                  </a>
+                </th>
 
-         <table class="bordered highlight">
-        <thead>
-          <tr>
+                <th data-field="price">
+                  <a href="" ng-click="sortType = 'prod'; sortReverse = !sortReverse">
+                    Prod Site
+                    <span ng-show="sortType == 'prod' && !sortReverse" class="fa fa-caret-down"></span>
+                    <span ng-show="sortType == 'prod' && sortReverse" class="fa fa-caret-up"></span>
+                  </a>
+                </th>
 
-              <th data-field="id">
-                <a href="" ng-click="sortType = 'name'; sortReverse = !sortReverse">
-                  Company
-                  <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
-                  <span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
-                </a>
-              </th>
+                <th data-field="price">
+                  <a href="" ng-click="sortType = 'uat'; sortReverse = !sortReverse">
+                    UAT Site
+                    <span ng-show="sortType == 'uat' && !sortReverse" class="fa fa-caret-down"></span>
+                    <span ng-show="sortType == 'uat' && sortReverse" class="fa fa-caret-up"></span>
+                  </a>
+                </th>
 
-              <th data-field="price">
-                <a href="" ng-click="sortType = 'prod'; sortReverse = !sortReverse">
-                  Prod Site
-                  <span ng-show="sortType == 'prod' && !sortReverse" class="fa fa-caret-down"></span>
-                  <span ng-show="sortType == 'prod' && sortReverse" class="fa fa-caret-up"></span>
-                </a>
-              </th>
+            </tr>
+          </thead>
 
-              <th data-field="price">
-                <a href="" ng-click="sortType = 'uat'; sortReverse = !sortReverse">
-                  UAT Site
-                  <span ng-show="sortType == 'uat' && !sortReverse" class="fa fa-caret-down"></span>
-                  <span ng-show="sortType == 'uat' && sortReverse" class="fa fa-caret-up"></span>
-                </a>
-              </th>
-
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr ng-repeat="customer in customers | orderBy:sortType:sortReverse | filter: searchCompany">
-            <td>{{customer.name}}</td>
-            <td><a target="_blank" href={{customer.prod}}>{{customer.prod}}</a></td>
-            <td><a target="_blank" href="{{customer.uat}}">{{customer.uat}}</a></td>
-          </tr>
-        </tbody>
-      </table>
-
-        </ul>
+          <tbody>
+            <tr ng-repeat="customer in customers | orderBy:sortType:sortReverse | filter: searchCompany">
+              <td>{{customer.name}}</td>
+              <td><a target="_blank" href={{customer.prod}}>{{customer.prod}}</a></td>
+              <td><a target="_blank" href="{{customer.uat}}">{{customer.uat}}</a></td>
+            </tr>
+          </tbody>
+        </table>
 
        </div>
      </div>
