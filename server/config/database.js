@@ -1,11 +1,16 @@
 var mongoose = require('mongoose');
-var mongoURI = 'mongodb://admin:admin@ds145245.mlab.com:45245/torch';
+var mongoURI = require('./secrets').database;
 
-module.exports = function() {
+module.exports = function () {
 
-  mongoose.connect(mongoURI);
+  try {
+    mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true }, () =>
+      console.log("connected"));
+  } catch (error) {
+    console.log("could not connect");
+  }
 
-  mongoose.connection.once('open', function() {
+  mongoose.connection.once('open', function () {
     console.log('Connection to MongoDB successful!');
   });
 
